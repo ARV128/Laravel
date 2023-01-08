@@ -15,6 +15,11 @@ class CreateKlijentsTable extends Migration
     {
         Schema::create('klijents', function (Blueprint $table) {
             $table->id();
+            $table->string('ime');
+            $table->string('prezime');
+            $table->string('broj_pasosa');
+            $table->string('datum_rodjenja');//gggg-mm-dd
+
             $table->timestamps();
         });
     }

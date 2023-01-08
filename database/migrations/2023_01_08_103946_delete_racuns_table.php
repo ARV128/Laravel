@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKupovinasTable extends Migration
+class DeleteRacunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,7 @@ class CreateKupovinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kupovinas', function (Blueprint $table) {
-            $table->id();
-            $table->string('datum');
-            $table->foreignId('klijent_id');
-            $table->foreignId('putovanje_id');
-
-            $table->timestamps();
-        });
+        Schema::dropIfExists('reacuns');
     }
 
     /**
@@ -30,6 +23,9 @@ class CreateKupovinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kupovinas');
+        Schema::create('reacuns', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 }

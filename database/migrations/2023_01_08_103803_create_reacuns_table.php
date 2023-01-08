@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePutovanjesTable extends Migration
+class CreateReacunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePutovanjesTable extends Migration
      */
     public function up()
     {
-        Schema::create('putovanjes', function (Blueprint $table) {
+        Schema::create('reacuns', function (Blueprint $table) {
             $table->id();
-            $table->string("destinacija");
-            $table->integer("broj_dana");
-            $table->string("prevoz");
-            $table->integer("cena");
+            $table->string('datum');
+            $table->integer('cena');
 
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ class CreatePutovanjesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('putovanjes');
+        Schema::dropIfExists('reacuns');
     }
 }
