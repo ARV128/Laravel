@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KupovinaController;
+use App\Http\Controllers\PutovanjeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::get("/putovanje",[PutovanjeController::class,'index']);
+Route::get("/putovanje/{id}",[PutovanjeController::class,'show']);
+
+Route::get("/kupovine",[KupovinaController::class,'index']);
+Route::get("/kupovine/{id}",[KupovinaController::class,'show']);
+
+
+
+ 
