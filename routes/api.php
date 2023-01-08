@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KupovinaController;
 use App\Http\Controllers\PutovanjeController;
 use Illuminate\Http\Request;
@@ -24,9 +25,20 @@ Route::get("/kupovine",[KupovinaController::class,'index']);
 Route::get("/kupovine/{id}",[KupovinaController::class,'show']);
 
 
-Route::delete("/kupovine/{id}",[KupovinaController::class,'destroy']);
-Route::post("/kupovine",[KupovinaController::class,'store']);
-Route::put("/kupovine/{id}",[KupovinaController::class,'update']);
+
+
+Route::post("/register",[AuthController::class,'register']);
+Route::post("/login",[AuthController::class,'login']);
+
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    Route::delete("/kupovine/{id}",[KupovinaController::class,'destroy']);
+    Route::post("/kupovine",[KupovinaController::class,'store']);
+    Route::put("/kupovine/{id}",[KupovinaController::class,'update']);
+
+    Route::post("/logout",[AuthController::class,'logout']);
+});
 
 
 
