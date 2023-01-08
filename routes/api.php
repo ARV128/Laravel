@@ -24,5 +24,11 @@ Route::get("/kupovine",[KupovinaController::class,'index']);
 Route::get("/kupovine/{id}",[KupovinaController::class,'show']);
 
 
+Route::delete("/kupovine/{id}",[KupovinaController::class,'destroy']);
+Route::post("/kupovine",[KupovinaController::class,'store']);
+Route::put("/kupovine/{id}",[KupovinaController::class,'update']);
+
+
+
 
  
