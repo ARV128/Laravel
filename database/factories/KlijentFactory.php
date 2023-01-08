@@ -14,7 +14,11 @@ class KlijentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'ime' => $this->faker->firstName(),
+            'prezime' => $this->faker->lastName(),
+            'broj_pasosa' => $this->faker->numerify('#########'),
+            'datum_rodjenja' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+        
         ];
     }
 }

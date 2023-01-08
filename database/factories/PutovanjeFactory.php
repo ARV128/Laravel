@@ -14,7 +14,11 @@ class PutovanjeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'destinacija' => $this->faker->country(),
+            'broj_dana' => $this->faker->numberBetween($min = 1, $max = 30),
+            'prevoz' => $this->faker->randomElement($array = array ('avio','bus','sopstveni')),
+            'cena' => $this->faker->numberBetween($min = 100, $max = 3000),
+        
         ];
     }
 }
